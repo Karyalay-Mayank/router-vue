@@ -34,12 +34,14 @@ export default {
     async created () {
         this.InitData();
 
+        // or
         // this.$watch(
         //     () => this.$route.params, this.InitData
         // ) // Can be also done using :key="$route.path"
     },
 
     methods: {
+        // Instead we can use watchers in created
         async InitData () {
             const response = await fetch(`https://travel-dummy-api.netlify.app/${this.$route.params.slug}.json`);
             this.destination = await response.json();
